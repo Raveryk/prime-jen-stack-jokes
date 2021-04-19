@@ -47,6 +47,8 @@ app.post('/joke', (req, res) => {
 
   jokes.push(newJoke);
 
+  console.log(jokes)
+
   res.sendStatus(201);
 
 })
