@@ -4,7 +4,9 @@ $( document ).ready( onReady );
 
 function onReady() {
     console.log('DOM ready');
-    $('#addJokeButton').on('click', addJoke)
+    $('#addJokeButton').on('click', addJoke);
+
+    getJokes();
 }
 
 
@@ -36,3 +38,30 @@ function addJoke() {
 
 
 } // end of addJoke
+
+
+// function to make GET request to server to receive the jokes
+function getJokes() {
+    $.ajax({
+        method: 'GET',
+        url: '/joke'
+    })
+        .then( function( response ) {
+            console.log('Response from server', response);
+            // appendToDom( response );   
+        })
+        .catch( function( error ) {
+            console.log('Error from server', error);
+            alert('Sorry, something went wrong retreiving data from server')
+            
+        })
+        console.log('After making server request');
+}
+
+
+// process data received from server and append it to the DOM
+// function appendToDom( jokes ) {
+
+//     for( let item of jokes )
+
+// }

@@ -41,6 +41,15 @@ app.listen(PORT, () => {
   console.log('server running on: ', PORT);
 }); // end spin up server
 
+
+// GET route to send back our data to the client
+app.get('/joke', (req, res) => {
+  res.send(jokes);
+  console.log( 'Joke History: ', jokes )
+})
+
+
+// receiving jokes from client
 app.post('/joke', (req, res) => {
   let newJoke = req.body;
   console.log('Server received a new joke', newJoke);
