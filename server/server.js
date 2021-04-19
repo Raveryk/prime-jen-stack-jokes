@@ -45,7 +45,7 @@ app.listen(PORT, () => {
 // GET route to send back our data to the client
 app.get('/joke', (req, res) => {
   res.send(jokes);
-  console.log( 'Joke History: ', jokes )
+  // console.log( 'Joke History: ', jokes )
 })
 
 

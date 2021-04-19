@@ -27,9 +27,8 @@ function addJoke() {
         data: newJoke
     }) .then( function( response )  {
         console.log('Adding Joke');
-        getJokes();
+        getJokes(); //runs getJokes function after every joke is added, thus appending new joke to DOM.
 
-        // getNums();
     }) .catch( function( error ) {
         console.log('Error from the server', error);
         alert('Sorry, we could not process your joke');
@@ -64,7 +63,7 @@ function appendToDom( jokes ) {
     $('#outputDiv').empty();
 
     for( let item of jokes ) {
-        $('#outputDiv').append(`<ul><li>${item.whoseJoke}'s Joke: ${item.jokeQuestion}...${item.punchLine}`)
+        $('#outputDiv').append(`<ul><li>${item.whoseJoke}'s Joke: ${item.jokeQuestion}...<b>${item.punchLine}</b> HHAHAHAHAHAHA!!!`)
     };
 
 }
