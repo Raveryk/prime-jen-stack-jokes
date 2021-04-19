@@ -56,7 +56,7 @@ app.post('/joke', (req, res) => {
 
   jokes.push(newJoke);
 
-  console.log(jokes)
+  // console.log(jokes)
 
   res.sendStatus(201);
 

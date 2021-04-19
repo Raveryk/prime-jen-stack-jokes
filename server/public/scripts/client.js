@@ -27,7 +27,7 @@ function addJoke() {
         data: newJoke
     }) .then( function( response )  {
         console.log('Adding Joke');
-        // getCalc();
+        getJokes();
 
         // getNums();
     }) .catch( function( error ) {
@@ -48,7 +48,7 @@ function getJokes() {
     })
         .then( function( response ) {
             console.log('Response from server', response);
-            // appendToDom( response );   
+            appendToDom( response );   
         })
         .catch( function( error ) {
             console.log('Error from server', error);
@@ -60,8 +60,11 @@ function getJokes() {
 
 
 // process data received from server and append it to the DOM
-// function appendToDom( jokes ) {
+function appendToDom( jokes ) {
+    $('#outputDiv').empty();
 
-//     for( let item of jokes )
+    for( let item of jokes ) {
+        $('#outputDiv').append(`<ul><li>${item.whoseJoke}'s Joke: ${item.jokeQuestion}...${item.punchLine}`)
+    };
 
-// }
+}
