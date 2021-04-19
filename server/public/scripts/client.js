@@ -9,6 +9,12 @@ function onReady() {
     getJokes();
 }
 
+function clearInputs() {
+    $('#whoseJokeIn').val('');
+    $('#questionIn').val('');
+    $('#punchLineIn').val('');
+}
+
 
 function addJoke() {
     // bundle inputs into an object
@@ -19,6 +25,11 @@ function addJoke() {
     }
 
     console.log( 'You have a new joke ', newJoke );
+
+    if( newJoke.whoseJoke === '' || newJoke.jokeQuestion === '' || newJoke.punchLine === '' ) {
+        alert('Please type a joke into the input fields!')
+    } else {
+
 
     // POST request to send data to server
     $.ajax({
@@ -35,6 +46,8 @@ function addJoke() {
         // alert('Please fill out all necessary inputs.');  
     })
 
+    clearInputs();
+}
 
 } // end of addJoke
 
